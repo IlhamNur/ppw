@@ -7,11 +7,14 @@
     <title>PPW06</title>
 </head>
 <body>
-    <?php for ($i = 0; $i < 5; $i++) { ?>
-        <div style='width:100px;height:100px;border:1px solid black;background-color:<?= $i % 
-        2
-            ? 'red'
-            : 'blue' ?>'> <?= $i ?> </div>
+    <?php for ($i = 1; $i <= 5; $i++) { ?>
+        <?php for ($j = $i; $j >= 1; $j--) { ?>
+            <div style='width:100px;height:100px;border:1px solid black;background-color:<?= $j % 
+            2
+                ? 'blue'
+                : 'red' ?>'></div>
+        <?php } ?>
+         
     <?php } ?>
 </body>
 </html>
