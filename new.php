@@ -1,20 +1,30 @@
-<table width="400px" cellspacing="0px" cellpadding="0px" border="1px">
 <?php
-for($row=1;$row<=5;$row++)
-{
-	echo "<tr>";
-	for($column=$row;$column>=1;$column--)
-	{
-		if($column%2==0)
-		{
-			echo "<td height=35px width=30px bgcolor=#FFFFFF></td>";
-		}
-		else
-		{
-			echo "<td height=35px width=30px bgcolor=#000000></td>";
-		}
-	}
-	echo "</tr>";
+
+// define our people and teams as simple arrays
+for($i=1;$i<71;$i++){
+    $people[]="person".$i;
 }
+
+for($i=1;$i<18;$i++){
+    $teams[]="team".$i;
+}
+
+// what team are we adding to?
+$teamidx=0;
+
+// loop through people, add them to a team
+// when you run out of teams, shuffle the team
+// order for giggles and start back at the first
+// team
+for($i=0;$i<count($people);$i++){
+    $teammembers[$teams[$teamidx]][]=$people[$i];
+    $teamidx++;
+    if($teamidx==count($teams)){
+        $teamidx=0;
+        shuffle($teams);
+    }
+}
+
+print_r($teammembers);
+
 ?>
-</table>
